@@ -22,7 +22,8 @@
             android:drawableStart="@drawable/ic_kleine_shape"
             android:drawablePadding="6dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="Kleine."></TextView>
         <TextView
@@ -32,7 +33,9 @@
             style="@style/h4"
             android:layout_marginTop="15dp"
             app:layout_constraintTop_toBottomOf="@id/tvAppName"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintStart_toStartOf="@id/tvAppName"
+            app:layout_constraintEnd_toEndOf="@id/tvAppName"
+
             android:text="Let's Login"
             android:textAlignment="center"
             android:gravity="center"
@@ -42,13 +45,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/h2"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintStart_toStartOf="@id/tvLetsLogin"
             app:layout_constraintTop_toBottomOf="@id/tvLetsLogin"
+            app:layout_constraintEnd_toEndOf="@id/tvLetsLogin"
             android:textAlignment="center"
             android:gravity="center"
             android:text="Don't have an account? Register"></TextView>
         <EditText
-            android:id="@+id/edFirstName"
+            android:id="@+id/edFirstNameRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
@@ -59,12 +63,12 @@
             android:inputType="textEmailAddress"
             android:layout_marginTop="10dp"></EditText>
         <EditText
-            android:id="@+id/edLastName"
+            android:id="@+id/edLastNameRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
-            app:layout_constraintTop_toBottomOf="@id/edFirstName"
+            app:layout_constraintTop_toBottomOf="@id/edFirstNameRegister"
             style="@style/editText"
             android:hint="Last Name"
             android:inputType="textEmailAddress"
@@ -75,13 +79,13 @@
             android:layout_height="@dimen/edittextHeight"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
-            app:layout_constraintTop_toBottomOf="@id/edLastName"
+            app:layout_constraintTop_toBottomOf="@id/edLastNameRegister"
             style="@style/editText"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:layout_marginTop="15dp"></EditText>
         <EditText
-            android:id="@+id/edPasswordLogin"
+            android:id="@+id/edPasswordLoginRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
@@ -142,7 +146,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
             style="@style/blueButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/edPasswordLogin"
+            app:layout_constraintTop_toBottomOf="@id/edPasswordLoginRegister"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
 

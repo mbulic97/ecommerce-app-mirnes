@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.ecommerceappmirnes.R
+import com.example.ecommerceappmirnes.data.User
 import com.example.ecommerceappmirnes.databinding.FragmentRegisterBinding
 import com.example.ecommerceappmirnes.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,5 +27,12 @@ class RegisterFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            buttonRegisterRegister.setOnClickListener {
+                val user=User(
+
+                )
+            }
+        }
     }
 }

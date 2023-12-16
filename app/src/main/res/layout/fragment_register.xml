@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="Kleine."></TextView>
         <TextView
-            android:id="@+id/tvLetsLogin"
+            android:id="@+id/tvLetsRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/h4"
@@ -43,9 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/h2"
-            app:layout_constraintStart_toStartOf="@id/tvLetsLogin"
-            app:layout_constraintTop_toBottomOf="@id/tvLetsLogin"
-            app:layout_constraintEnd_toEndOf="@id/tvLetsLogin"
+            app:layout_constraintStart_toStartOf="@id/tvLetsRegister"
+            app:layout_constraintTop_toBottomOf="@id/tvLetsRegister"
+            app:layout_constraintEnd_toEndOf="@id/tvLetsRegister"
             android:textAlignment="center"
             android:gravity="center"
             android:text="Don't have an account? Register"></TextView>
@@ -53,19 +53,19 @@
             android:id="@+id/edFirstNameRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
-            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
             app:layout_constraintTop_toBottomOf="@id/tvDontHaveAccount"
             style="@style/editText"
             android:hint="First Name"
             android:inputType="textEmailAddress"
             android:layout_marginTop="10dp"></EditText>
         <EditText
-            android:id="@+id/edLastName"
+            android:id="@+id/edLastNameRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
-            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
             app:layout_constraintTop_toBottomOf="@id/edFirstNameRegister"
             style="@style/editText"
             android:hint="Last Name"
@@ -75,19 +75,19 @@
             android:id="@+id/edEmailRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
-            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
-            app:layout_constraintTop_toBottomOf="@id/edLastName"
+            app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
+            app:layout_constraintTop_toBottomOf="@id/edLastNameRegister"
             style="@style/editText"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:layout_marginTop="15dp"></EditText>
         <EditText
-            android:id="@+id/edPasswordLogin"
+            android:id="@+id/edPasswordRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
-            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
             app:layout_constraintTop_toBottomOf="@id/edEmailRegister"
             style="@style/editText"
             android:hint="Password"
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/h2"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
             app:layout_constraintTop_toBottomOf="@id/edPasswordLogin"
             android:textAlignment="center"
             android:gravity="center"
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
             app:layout_constraintTop_toBottomOf="@id/buttonRegisterRegister"
             android:src="@drawable/facebook_login"
             ></ImageView>
@@ -123,11 +123,11 @@
             app:layout_constraintEnd_toEndOf="@id/facebookRegister"></TextView>
 
         <ImageView
-            android:id="@+id/googleLogin"
+            android:id="@+id/googleRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
-            app:layout_constraintEnd_toEndOf="@+id/guidelineLoginRight"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
             app:layout_constraintTop_toBottomOf="@id/buttonRegisterRegister"
             android:src="@drawable/google_login"
             ></ImageView>
@@ -135,31 +135,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Google"
-            app:layout_constraintStart_toStartOf="@id/googleLogin"
-            app:layout_constraintTop_toTopOf="@id/googleLogin"
-            app:layout_constraintBottom_toBottomOf="@id/googleLogin"
-            app:layout_constraintEnd_toEndOf="@id/googleLogin"></TextView>
-        <androidx.appcompat.widget.AppCompatButton
+            app:layout_constraintStart_toStartOf="@id/googleRegister"
+            app:layout_constraintTop_toTopOf="@id/googleRegister"
+            app:layout_constraintBottom_toBottomOf="@id/googleRegister"
+            app:layout_constraintEnd_toEndOf="@id/googleRegister"></TextView>
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonRegisterRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
             style="@style/blueButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/edPasswordLogin"
-            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
-            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintTop_toBottomOf="@id/edPasswordRegister"
+            app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
 
-            android:text="Register">
+            android:text="Register"
+            app:spinning_bar_color="@color/white">
 
-        </androidx.appcompat.widget.AppCompatButton>
+        </br.com.simplepass.loadingbutton.customViews.CircularProgressButton>
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineLoginLeft"
+            android:id="@+id/guidelineRegisterLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.09"
             ></androidx.constraintlayout.widget.Guideline>
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineLoginRight"
+            android:id="@+id/guidelineRegisterRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"

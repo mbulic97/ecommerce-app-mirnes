@@ -91,7 +91,7 @@
             app:layout_constraintTop_toBottomOf="@id/edEmailRegister"
             style="@style/editText"
             android:hint="Password"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:layout_marginTop="15dp"></EditText>
         <!--<TextView
             android:id="@+id/tvForgotPasswordLogin"

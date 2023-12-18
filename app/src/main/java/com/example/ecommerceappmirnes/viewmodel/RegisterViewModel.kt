@@ -19,6 +19,7 @@ class RegisterViewModel @Inject constructor(
     val register: Flow<Resource<FirebaseUser>> =_register
 
     fun createAccountWithEmailAndPassword(user:User,password: String){
+
         runBlocking {
             _register.emit(Resource.Loading())
         }

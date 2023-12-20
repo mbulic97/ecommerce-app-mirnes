@@ -16,7 +16,10 @@ import com.example.ecommerceappmirnes.databinding.FragmentLoginBinding
 import com.example.ecommerceappmirnes.util.Resource
 import com.example.ecommerceappmirnes.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
+
+
+
+
 
 @AndroidEntryPoint
 class LoginFragment: Fragment(R.layout.fragment_login) {
@@ -26,7 +29,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding=FragmentLoginBinding.inflate(inflater)
         return binding.root
     }

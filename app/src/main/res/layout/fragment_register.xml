@@ -34,7 +34,7 @@
             app:layout_constraintStart_toStartOf="@id/tvAppName"
             app:layout_constraintEnd_toEndOf="@id/tvAppName"
 
-            android:text="Let's Login"
+            android:text="Let's Register"
             android:textAlignment="center"
             android:gravity="center"
             android:textSize="35sp"></TextView>
@@ -48,7 +48,7 @@
             app:layout_constraintEnd_toEndOf="@id/tvLetsRegister"
             android:textAlignment="center"
             android:gravity="center"
-            android:text="Don't have an account? Register"></TextView>
+            android:text="Do you have an account? log in"></TextView>
         <EditText
             android:id="@+id/edFirstNameRegister"
             android:layout_width="0dp"

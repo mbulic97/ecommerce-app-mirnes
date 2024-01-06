@@ -5,12 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.ecommerceappmirnes.data.Product
 import com.example.ecommerceappmirnes.databinding.SpecialRvItemBinding
 
 class SpecialProductsAdapter: RecyclerView.Adapter<SpecialProductsAdapter.SpecialProductsViewHolder>() {
     inner class SpecialProductsViewHolder(private val binding: SpecialRvItemBinding):
         RecyclerView.ViewHolder(binding.root){
+            fun bind(product: Product){
+                binding.apply {
+                    Glide.with(itemView).load(product.images[0]).into(imageSpecialRvItem)
+                    tvSpecialProductName.text=product.name
+                    tvSpecialProductPrice.text=product.price.toString()
+                }
+            }
 
         }
     val diffCallback=object : DiffUtil.ItemCallback<Product>(){
@@ -26,16 +34,18 @@ class SpecialProductsAdapter: RecyclerView.Adapter<SpecialProductsAdapter.Specia
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecialProductsViewHolder {
         return SpecialProductsViewHolder(
             SpecialRvItemBinding.inflate(
-                LayoutInflater.from(parent.context),parent,null)
+                LayoutInflater.from(parent.context),parent,false
             )
         )
     }
 
     override fun onBindViewHolder(holder: SpecialProductsViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val product = differ.currentList[position]
+        holder.bind(product)
+
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return differ.currentList.size
     }
 }

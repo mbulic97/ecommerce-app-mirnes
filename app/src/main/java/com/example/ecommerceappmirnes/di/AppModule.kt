@@ -21,4 +21,6 @@ object AppModule {
     @Singleton
     fun provideFirebaseFirestoreDatabase()=com.google.firebase.ktx.Firebase.firestore
 
+
+
 }

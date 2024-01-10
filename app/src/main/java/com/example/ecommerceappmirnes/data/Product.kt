@@ -9,4 +9,7 @@ class Product (
     val color: List<Int>?=null,
     val sizes: List<Int>?=null,
     val images: List<Int>
-)
+
+){
+    constructor():this ("0","","",0f,images= emptyList())
+}

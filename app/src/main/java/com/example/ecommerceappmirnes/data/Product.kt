@@ -7,8 +7,8 @@ class Product (
     val price: Float,
     val offerPercentage: Float?=null,
     val color: List<Int>?=null,
-    val sizes: List<Int>?=null,
-    val images: List<Int>
+    val sizes: List<String>?=null,
+    val images: List<String>
 
 ){
     constructor():this ("0","","",0f,images= emptyList())

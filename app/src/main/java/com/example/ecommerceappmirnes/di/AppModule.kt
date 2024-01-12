@@ -1,6 +1,9 @@
 package com.example.ecommerceappmirnes.di
 
+import android.app.Application
+import android.content.Context.MODE_PRIVATE
 import androidx.core.app.ServiceCompat
+import com.example.ecommerceappmirnes.util.Constants.INTRODUCTION_SP
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -21,6 +24,10 @@ object AppModule {
     @Singleton
     fun provideFirebaseFirestoreDatabase()=com.google.firebase.ktx.Firebase.firestore
 
-
+    @Provides
+    @Singleton
+    fun provideIntroductionSP(
+        application: Application
+    )= application.getSharedPreferences(INTRODUCTION_SP,MODE_PRIVATE)
 
 }

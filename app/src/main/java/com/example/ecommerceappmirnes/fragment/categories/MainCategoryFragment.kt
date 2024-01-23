@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.load.engine.Resource
@@ -43,6 +44,18 @@ class MainCategoryFragment :Fragment(R.layout.fragment_main_category){
         setupSpecialProductsRv()
         setupBestDealsRv()
         setupBestProductsRv()
+        specialProductsAdapter.onClick={
+            val b= Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+        bestDealsAdapter.onClick={
+            val b= Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+        bestProductsAdapter.onClick={
+            val b= Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
         lifecycleScope.launchWhenStarted {
             viewModel.specialProduct.collectLatest {
                 when(it){

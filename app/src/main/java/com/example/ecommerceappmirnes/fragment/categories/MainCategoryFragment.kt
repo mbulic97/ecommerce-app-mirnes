@@ -19,6 +19,7 @@ import com.example.ecommerceappmirnes.adapters.BestDealsAdapter
 import com.example.ecommerceappmirnes.adapters.BestProductAdapter
 import com.example.ecommerceappmirnes.adapters.SpecialProductsAdapter
 import com.example.ecommerceappmirnes.databinding.FragmentMainCategoryBinding
+import com.example.ecommerceappmirnes.util.showBottomNavigationView
 import com.example.ecommerceappmirnes.viewmodel.MainCategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -146,5 +147,10 @@ class MainCategoryFragment :Fragment(R.layout.fragment_main_category){
             layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             adapter=specialProductsAdapter
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigationView()
     }
 }

@@ -3,9 +3,11 @@ package com.example.ecommerceappmirnes.di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import androidx.core.app.ServiceCompat
+import com.example.ecommerceappmirnes.firebase.FirebaseCommon
 import com.example.ecommerceappmirnes.util.Constants.INTRODUCTION_SP
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import dagger.Module
 import dagger.Provides
@@ -29,5 +31,10 @@ object AppModule {
     fun provideIntroductionSP(
         application: Application
     )= application.getSharedPreferences(INTRODUCTION_SP,MODE_PRIVATE)
-
+    @Provides
+    @Singleton
+    fun provideFrebaseCommon(
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore
+    )= FirebaseCommon(firestore,firebaseAuth)
 }

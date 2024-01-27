@@ -68,13 +68,16 @@ class ProductDetailsFragment: Fragment() {
             viewModel.addUpdateProductInCart(CartProduct(product,1,selectedColor,selectedSize))
         }
         lifecycleScope.launchWhenStarted {
-            viewModel.addToCard.collectLatest {
+            viewModel.addToCart.collectLatest {
                 when(it){
                     is Resource.Loading->{
                         binding.buttonAddToCart.startAnimation()
-                        binding.buttonAddToCart.setBackgroundColor(resources.getColor(R.color.black))
                     }
                     is Resource.Success->{
+                        binding.buttonAddToCart.revertAnimation()
+                        binding.buttonAddToCart.setBackgroundColor(resources.getColor(R.color.black))
+                    }
+                    is Resource.Error->{
                         binding.buttonAddToCart.stopAnimation()
                         Toast.makeText(requireContext(),it.message,Toast.LENGTH_SHORT).show()
                     }

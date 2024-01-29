@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/telefon"
             app:layout_constraintDimensionRatio="1:1.5"
@@ -29,7 +29,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guidelinetvRightAddressForShopping"></TextView>
-
         <TextView
             android:id="@+id/tvQuality"
             style="@style/h2"
@@ -72,6 +71,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.28" />
+            app:layout_constraintGuide_percent="0.21" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

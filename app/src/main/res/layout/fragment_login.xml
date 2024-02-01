@@ -17,12 +17,11 @@
             android:layout_height="wrap_content"
             style="@style/h3"
             android:layout_marginTop="110dp"
-            android:drawableStart="@drawable/ic_kleine_shape"
             android:drawablePadding="6dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Kleine."></TextView>
+            android:text="by: Mirnes Bulic."></TextView>
         <TextView
             android:id="@+id/tvLetsLogin"
             android:layout_width="wrap_content"

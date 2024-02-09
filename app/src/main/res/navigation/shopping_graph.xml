@@ -32,7 +32,7 @@
             android:id="@+id/action_cartFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
         <action
-            android:id="@+id/action_cartFragment_to_billingFragment"
+            android:id="@+id/action_cartFragment_to_billingFragment2"
             app:destination="@id/billingFragment" />
     </fragment>
     <fragment
@@ -71,6 +71,6 @@
             app:argType="float" />
         <argument
             android:name="products"
-            app:argType="com.example.ecommerceappmirnes.data.CartProduct" />
+            app:argType="com.example.ecommerceappmirnes.data.CartProduct[]" />
     </fragment>
 </navigation>

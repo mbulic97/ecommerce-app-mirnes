@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerceappmirnes.R
 import com.example.ecommerceappmirnes.adapters.AddressAdapter
 import com.example.ecommerceappmirnes.adapters.BillingProductsAdapter
+import com.example.ecommerceappmirnes.data.CartProduct
 import com.example.ecommerceappmirnes.databinding.FragmentBillingBinding
 import com.example.ecommerceappmirnes.util.HorizontalItemDecoration
 import com.example.ecommerceappmirnes.util.Resource
@@ -28,7 +29,14 @@ class BillingFragment: Fragment() {
     private val billingProductsAdapter by lazy { BillingProductsAdapter() }
     private val viewModel by viewModels<BillingViewModel>()
     private val args by navArgs<BillingFragmentArgs>()
+    private var products = emptyList<CartProduct>()
+    private var totalPrice= 0f
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        products= args.products.toList()
+        totalPrice=args.totalPrice
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,6 +73,8 @@ class BillingFragment: Fragment() {
                 }
             }
         }
+        billingProductsAdapter.differ.submitList(products)
+        binding.tvTotalPrice.text= "$ $totalPrice"
     }
 
     private fun setupAddressRv() {

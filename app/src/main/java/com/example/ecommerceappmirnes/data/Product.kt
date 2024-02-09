@@ -1,9 +1,10 @@
 package com.example.ecommerceappmirnes.data
 
 import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 
-@kotlinx.android.parcel.Parcelize
 class Product (
     val id:String,
     val name: String,

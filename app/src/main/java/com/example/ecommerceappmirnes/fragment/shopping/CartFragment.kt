@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerceappmirnes.R
 import com.example.ecommerceappmirnes.adapters.CartProductAdapter
+import com.example.ecommerceappmirnes.data.CartProduct
 import com.example.ecommerceappmirnes.databinding.FragmentCartBinding
 import com.example.ecommerceappmirnes.firebase.FirebaseCommon
 import com.example.ecommerceappmirnes.util.Resource
@@ -23,8 +24,9 @@ import kotlinx.coroutines.flow.collectLatest
 
 class CartFragment: Fragment(R.layout.fragment_cart){
     private lateinit var binding: FragmentCartBinding
-    private val cartAdapter by lazy {CartProductAdapter()}
+    private val cartAdapter by lazy { CartProductAdapter() }
     private val viewModel by activityViewModels<CartViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,8 +45,9 @@ class CartFragment: Fragment(R.layout.fragment_cart){
         lifecycleScope.launchWhenStarted {
             viewModel.productsPrice.collectLatest { price->
                 price?.let {
-                    if(it is Float)
-                    totalPrice= it
+                    if(it is Float){
+                        totalPrice= it
+                    }
                     binding.tvTotalPrice.text= "$ $price"
                 }
             }
@@ -60,7 +63,7 @@ class CartFragment: Fragment(R.layout.fragment_cart){
             viewModel.changeQuantity(it,FirebaseCommon.QuantityChanging.DECREASE)
         }
         binding.buttonCheckout.setOnClickListener{
-            val action= CartFragmentDirections.actionCartFragmentToBillingFragment(totalPrice,cartAdapter.differ.currentList.toTypedArray())
+            val action = CartFragmentDirections.actionCartFragmentToBillingFragment2(totalPrice,cartAdapter.differ.currentList.toTypedArray())
             findNavController().navigate(action)
         }
         lifecycleScope.launchWhenStarted {

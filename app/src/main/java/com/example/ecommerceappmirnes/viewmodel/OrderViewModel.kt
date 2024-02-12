@@ -38,6 +38,14 @@ class OrderViewModel @Inject constructor(
                     }
                 }
 
+        }.addOnSuccessListener {
+            viewModelScope.launch {
+                _order.emit(Resource.Success(order))
+            }
+        }.addOnFailureListener {
+            viewModelScope.launch {
+                _order.emit(Resource.Error(it.message.toString()))
+            }
         }
     }
 }

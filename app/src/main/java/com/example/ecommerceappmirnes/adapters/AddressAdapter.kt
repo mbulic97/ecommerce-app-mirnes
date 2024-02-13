@@ -50,10 +50,10 @@ class AddressAdapter :Adapter<AddressAdapter.AddressViewHolder>() {
         holder.binding.buttonAddress.setOnClickListener {
             if(selectedAddress>=0){
                 notifyItemChanged(selectedAddress)
-                selectedAddress= holder.adapterPosition
-                notifyItemChanged(selectedAddress)
-                onClick?.invoke(address)
             }
+            selectedAddress= holder.adapterPosition
+            notifyItemChanged(selectedAddress)
+            onClick?.invoke(address)
         }
 
     }

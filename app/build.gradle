@@ -85,6 +85,8 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.45"
     //Firebase
     implementation 'com.google.firebase:firebase-auth:22.3.1'
+    //Coroutines with firebase
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.0-RC2"
 
     //Navigation component
     def nav_version = "2.5.2"

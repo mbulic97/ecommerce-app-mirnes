@@ -77,4 +77,8 @@
         android:id="@+id/userAccountFragment"
         android:name="com.example.ecommerceappmirnes.fragment.settings.UserAccountFragment"
         android:label="UserAccountFragment" />
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.ecommerceappmirnes.fragment.settings.AllOrdersFragment"
+        android:label="OrdersFragment" />
 </navigation>

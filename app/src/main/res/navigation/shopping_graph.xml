@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shopping_graph"
-    app:startDestination="@id/userAccountFragment">
+    app:startDestination="@id/ordersFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -80,5 +80,17 @@
     <fragment
         android:id="@+id/ordersFragment"
         android:name="com.example.ecommerceappmirnes.fragment.settings.AllOrdersFragment"
-        android:label="OrdersFragment" />
+        android:label="OrdersFragment" >
+        <action
+            android:id="@+id/action_ordersFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.example.ecommerceappmirnes.fragment.settings.OrderDetailFragment"
+        android:label="OrderDetailFragment" >
+        <argument
+            android:name="order"
+            app:argType="com.example.ecommerceappmirnes.data.order.Order" />
+    </fragment>
 </navigation>

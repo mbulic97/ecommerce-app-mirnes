@@ -49,6 +49,8 @@ class RegisterFragment: Fragment() {
                 )
                 val password=edPasswordRegister.text.toString()
                 viewModel.createAccountWithEmailAndPassword(user,password)
+                findNavController().navigate(R.id.action_registerFragment_to_homeFragment2)
+
             }
         }
         lifecycleScope.launchWhenStarted {

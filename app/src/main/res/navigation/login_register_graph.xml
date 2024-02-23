@@ -27,6 +27,9 @@
             app:destination="@id/registerFragment"
             app:enterAnim="@anim/from_bottom"
             app:popUpTo="@id/accountOptionsFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -38,6 +41,9 @@
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/from_bottom"
             app:popUpTo="@id/accountOptionsFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/accountOptionsFragment"
@@ -59,4 +65,9 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.ecommerceappmirnes.fragment.shopping.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
 </navigation>

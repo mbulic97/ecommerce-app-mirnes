@@ -15,23 +15,28 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ): ViewModel() {
+
     private val _login = MutableSharedFlow<Resource<FirebaseUser>>()
     val login = _login.asSharedFlow()
     private val _resetPassword = MutableSharedFlow<Resource<String>>()
     val resetPassword = _resetPassword.asSharedFlow()
+    var findnext=false
     fun login(email: String, password: String) {
         viewModelScope.launch { _login.emit(Resource.Loading()) }
         firebaseAuth.signInWithEmailAndPassword(
             email, password
         ).addOnSuccessListener {
+            findnext=true
             viewModelScope.launch {
                 it.user?.let {
                     _login.emit(Resource.Success(it))
                 }
             }
         }.addOnFailureListener {
+            findnext=false
             viewModelScope.launch {
                 _login.emit(Resource.Error(it.message.toString()))
+
             }
         }
     }

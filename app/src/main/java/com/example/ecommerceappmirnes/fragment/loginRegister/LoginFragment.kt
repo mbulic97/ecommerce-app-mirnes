@@ -45,7 +45,12 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             buttonLoginLogin.setOnClickListener {
                 val email=edEmailLogin.text.toString().trim()
                 val password=edPasswordLogin.text.toString()
+
                 viewModel.login(email,password)
+                if(viewModel.findnext){
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                }
+
             }
         }
         binding.tvForgotPasswordLogin.setOnClickListener {

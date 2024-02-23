@@ -361,7 +361,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/sf_pro_display"
-                android:text="Version 1.0"
+                android:text="Version 1.0\nBy:Mirnes Bulic"
                 android:textColor="@color/g_gray700"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"

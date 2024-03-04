@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.ecommerceappmirnes.BuildConfig
+//import com.example.ecommerceappmirnes.BuildConfig
 import com.example.ecommerceappmirnes.R
 import com.example.ecommerceappmirnes.activities.LoginRegisterActivity
 import com.example.ecommerceappmirnes.databinding.FragmentProfileBinding
@@ -56,7 +56,7 @@ class ProfileFragment: Fragment(){
             startActivity(intent)
             requireActivity().finish()
         }
-        binding.tvVersion.text = "Version ${BuildConfig.VERSION_CODE}"
+        //binding.tvVersion.text = "Version ${BuildConfig.VERSION_CODE}"
 
         lifecycleScope.launchWhenStarted {
             viewModel.user.collectLatest {

@@ -14,6 +14,7 @@ import com.example.ecommerceappmirnes.data.Product
 import com.example.ecommerceappmirnes.databinding.SearchItemBinding
 
 class SearchAdapter(): RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+
     inner class SearchViewHolder(private val binding: SearchItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(product: Product){
             binding.apply {
@@ -27,10 +28,12 @@ class SearchAdapter(): RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         return SearchViewHolder(
             SearchItemBinding.inflate(
                 LayoutInflater.from(parent.context),parent,false
+
             )
         )
     }
@@ -46,12 +49,15 @@ class SearchAdapter(): RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     }
     val differ = AsyncListDiffer(this, diffCallback)
-
+    fun dsad(){
+        notifyDataSetChanged()
+    }
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         val product= differ.currentList[position]
         holder.bind(product)
         holder.itemView.setOnClickListener {
             onClick?.invoke(product)
+
         }
    }
     override fun getItemCount(): Int {

@@ -18,6 +18,9 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val firestore: FirebaseFirestore
 ):ViewModel()  {
+    /*fun setFilter(filteredList: ArrayList<Product>) {
+        _specialProducts.value = Resource.Success(filteredList)
+    }*/
     private val _specialProducts= MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
     val specialProduct: StateFlow<Resource<List<Product>>> = _specialProducts
     init {
@@ -27,6 +30,7 @@ class SearchViewModel @Inject constructor(
         firestore.collection("Products").get()
             .addOnSuccessListener { result ->
                 val bestProducts = result.toObjects(Product::class.java)
+
                 viewModelScope.launch {
                     _specialProducts.emit(Resource.Success(bestProducts))
                 }
@@ -36,4 +40,5 @@ class SearchViewModel @Inject constructor(
                 }
             }
     }
+
 }

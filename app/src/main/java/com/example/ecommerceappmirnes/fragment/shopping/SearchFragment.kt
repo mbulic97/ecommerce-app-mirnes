@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.SearchView.OnQueryTextListener
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -79,36 +80,16 @@ class SearchFragment : Fragment(R.layout.search_item) {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
+                newText?.let {
+                    val filteredList = viewModel.specialProduct.value.data?.filter {product ->
+                    product.name.contains(newText, ignoreCase = true)
+                    }
+                    searchAdapter.differ.submitList(filteredList)
+                }
                 return true
             }
         })
     }
 
-    private fun filterList(query: String?) {
-        if(query!=null){
-            val filteredList= kotlin.collections.ArrayList<Product>()
-            for(i in searchAdapter.differ.currentList) {
-                if (i.name.lowercase(Locale.ROOT).contains(query)) {
-                    filteredList.add(i)
-                }
-            }
-            if(filteredList.isNotEmpty()){
-                val _specialProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Success(filteredList))
-                val specialProduct: StateFlow<Resource<List<Product>>> = _specialProducts
-                lifecycleScope.launchWhenStarted {
-                    specialProduct.collectLatest {
-                        when (it) {
-                            is com.example.ecommerceappmirnes.util.Resource.Success -> {
-                                searchAdapter.differ.submitList(it.data)
-                            }
-                            else -> Unit
-                        }
-                    }
-                }
-                searchAdapter.dsad()
-            }
 
-        }
-    }
 }

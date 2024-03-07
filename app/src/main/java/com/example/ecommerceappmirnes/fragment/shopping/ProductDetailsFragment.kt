@@ -55,6 +55,10 @@ class ProductDetailsFragment: Fragment() {
         setupSizesRv()
         setupColorsRv()
         setupViewpager()
+        /*binding.viewPagerProductImages.setOnClickListener {
+            findNavController().navigate(R.id.action_productDetailsFragment_to_viewImageItem)
+        }*/
+
         binding.imageClose.setOnClickListener {
             findNavController().navigateUp()
         }
@@ -102,6 +106,7 @@ class ProductDetailsFragment: Fragment() {
     private fun setupViewpager() {
         binding.apply {
             viewPagerProductImages.adapter=viewPagerAdapter
+
         }
     }
 

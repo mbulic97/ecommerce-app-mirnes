@@ -61,6 +61,9 @@
         <argument
             android:name="product"
             app:argType="com.example.ecommerceappmirnes.data.Product" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_viewImageItem"
+            app:destination="@id/viewImageItem" />
     </fragment>
     <fragment
         android:id="@+id/addressFragment"
@@ -104,4 +107,8 @@
             android:name="order"
             app:argType="com.example.ecommerceappmirnes.data.order.Order" />
     </fragment>
+    <fragment
+        android:id="@+id/viewImageItem"
+        android:name="com.example.ecommerceappmirnes.fragment.shopping.ViewImageItem"
+        android:label="ViewImageItem" />
 </navigation>

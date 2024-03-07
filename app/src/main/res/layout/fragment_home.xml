@@ -49,6 +49,7 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"></View>
         <ImageView
+            android:id="@+id/barcode"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_scan"

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -86,7 +89,8 @@
     <fragment
         android:id="@+id/ordersFragment"
         android:name="com.example.ecommerceappmirnes.fragment.settings.AllOrdersFragment"
-        android:label="OrdersFragment" >
+        android:label="OrdersFragment"
+        tools:layout="@layout/fragment_orders">
         <action
             android:id="@+id/action_ordersFragment_to_orderDetailFragment"
             app:destination="@id/orderDetailFragment" />
@@ -94,7 +98,8 @@
     <fragment
         android:id="@+id/orderDetailFragment"
         android:name="com.example.ecommerceappmirnes.fragment.settings.OrderDetailFragment"
-        android:label="OrderDetailFragment" >
+        android:label="OrderDetailFragment"
+        tools:layout="@layout/fragment_order_detail">
         <argument
             android:name="order"
             app:argType="com.example.ecommerceappmirnes.data.order.Order" />

@@ -110,5 +110,9 @@
     <fragment
         android:id="@+id/viewImageItem"
         android:name="com.example.ecommerceappmirnes.fragment.shopping.ViewImageItem"
-        android:label="ViewImageItem" />
+        android:label="ViewImageItem" >
+        <argument
+            android:name="product"
+            app:argType="com.example.ecommerceappmirnes.data.Product" />
+    </fragment>
 </navigation>

@@ -35,7 +35,6 @@ class ProductDetailsFragment: Fragment() {
     private val colorsAdapter by lazy {ColorsAdapter()}
     private var selectedColor: Int?= null
     private var selectedSize: String?= null
-
     private val viewModel by viewModels<DetailsViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,9 +54,10 @@ class ProductDetailsFragment: Fragment() {
         setupSizesRv()
         setupColorsRv()
         setupViewpager()
-        /*binding.viewPagerProductImages.setOnClickListener {
-            findNavController().navigate(R.id.action_productDetailsFragment_to_viewImageItem)
-        }*/
+        binding.dugme.setOnClickListener {
+            val action = ProductDetailsFragmentDirections.actionProductDetailsFragmentToViewImageItem(product)
+            findNavController().navigate(action)
+        }
 
         binding.imageClose.setOnClickListener {
             findNavController().navigateUp()

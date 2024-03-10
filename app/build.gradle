@@ -97,5 +97,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
 
 
-
+    //barcode
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 }

@@ -1,9 +1,11 @@
 package com.example.ecommerceappmirnes.fragment.shopping
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.ecommerceappmirnes.R
@@ -11,6 +13,7 @@ import com.example.ecommerceappmirnes.adapters.HomeViewpagerAdapter
 import com.example.ecommerceappmirnes.databinding.FragmentHomeBinding
 import com.example.ecommerceappmirnes.fragment.categories.*
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.zxing.integration.android.IntentIntegrator
 
 class HomeFragment: Fragment(R.layout.fragment_home){
     private lateinit var binding: FragmentHomeBinding
@@ -28,6 +31,14 @@ class HomeFragment: Fragment(R.layout.fragment_home){
         binding.searchbar.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
+        binding.barcode.setOnClickListener {
+            val scanner= IntentIntegrator.forSupportFragment(this)
+            scanner.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
+            scanner.setCameraId(0)
+            scanner.setBeepEnabled(false)
+            scanner.setBarcodeImageEnabled(false)
+            scanner.initiateScan()
+        }
         val categoriesFragmnets= arrayListOf<Fragment>(
             MainCategoryFragment(),
             ChairFragment(),
@@ -36,9 +47,7 @@ class HomeFragment: Fragment(R.layout.fragment_home){
             AccessoryFragment(),
             FurnitureFragment()
         )
-        binding.barcode.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
-        }
+
         binding.viewpagerHome.isUserInputEnabled=false
         val viewPager2Adapter= HomeViewpagerAdapter(categoriesFragmnets,childFragmentManager, lifecycle )
         binding.viewpagerHome.adapter=viewPager2Adapter
@@ -53,4 +62,62 @@ class HomeFragment: Fragment(R.layout.fragment_home){
             }
         }.attach()
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val result= IntentIntegrator.parseActivityResult(requestCode,resultCode,data)
+        val result1= result.contents
+        if (result != null){
+            if(result.contents==null){
+                Toast.makeText(context,"Cancelled", Toast.LENGTH_LONG).show()
+            }
+            else{
+                Toast.makeText(context,"Scanned: " + result.contents,Toast.LENGTH_LONG).show()
+            }
+        }else{
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+    }
+
+    /*override fun startActivityForResult(intent: Intent, resultCode: Int) {
+        super.startActivityForResult(intent, resultCode)
+        Toast.makeText(requireActivity(),"Hello",Toast.LENGTH_LONG).show()
+        if(resultCode==Activity.RESULT_OK) {
+                val result= IntentIntegrator.parseActivityResult(resultCode,intent)
+                //val result = IntentIntegrator.parseActivityResult(resultCode, resultCode, data)
+                if (result != null) {
+                    if (result.contents == null) {
+                        Toast.makeText(requireActivity(), "Cancelled", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(requireActivity(), "Scanned: " + result.contents,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+
+           }
+    }*/
+
+
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+         super.onActivityResult(requestCode, resultCode, data)
+         Toast.makeText(requireActivity(),"Hello",Toast.LENGTH_LONG).show()
+        if(resultCode==) {
+            val result = IntentIntegrator.parseActivityResult(resultCode, resultCode, data)
+            if (result != null) {
+                if (result.contents == null) {
+                    Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Scanned: " + result.contents,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data)
+            }
+
+        }
+    }*/
+
 }

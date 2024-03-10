@@ -2,13 +2,18 @@ package com.example.ecommerceappmirnes.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.navArgument
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.init
 import com.example.ecommerceappmirnes.databinding.ViewpagerImageItemBinding
+import com.example.ecommerceappmirnes.fragment.shopping.ProductDetailsFragmentArgs
+import com.example.ecommerceappmirnes.fragment.shopping.ViewImageItem
 
 class ViewPager2Images :RecyclerView.Adapter<ViewPager2Images.ViewPager2ImagesHolder>() {
     inner class ViewPager2ImagesHolder(val binding: ViewpagerImageItemBinding): ViewHolder(binding.root){

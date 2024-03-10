@@ -65,7 +65,6 @@ class HomeFragment: Fragment(R.layout.fragment_home){
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result= IntentIntegrator.parseActivityResult(requestCode,resultCode,data)
-        val result1= result.contents
         if (result != null){
             if(result.contents==null){
                 Toast.makeText(context,"Cancelled", Toast.LENGTH_LONG).show()
@@ -77,47 +76,5 @@ class HomeFragment: Fragment(R.layout.fragment_home){
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
-
-    /*override fun startActivityForResult(intent: Intent, resultCode: Int) {
-        super.startActivityForResult(intent, resultCode)
-        Toast.makeText(requireActivity(),"Hello",Toast.LENGTH_LONG).show()
-        if(resultCode==Activity.RESULT_OK) {
-                val result= IntentIntegrator.parseActivityResult(resultCode,intent)
-                //val result = IntentIntegrator.parseActivityResult(resultCode, resultCode, data)
-                if (result != null) {
-                    if (result.contents == null) {
-                        Toast.makeText(requireActivity(), "Cancelled", Toast.LENGTH_LONG).show()
-                    } else {
-                        Toast.makeText(requireActivity(), "Scanned: " + result.contents,
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
-
-           }
-    }*/
-
-
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-         super.onActivityResult(requestCode, resultCode, data)
-         Toast.makeText(requireActivity(),"Hello",Toast.LENGTH_LONG).show()
-        if(resultCode==) {
-            val result = IntentIntegrator.parseActivityResult(resultCode, resultCode, data)
-            if (result != null) {
-                if (result.contents == null) {
-                    Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Scanned: " + result.contents,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            } else {
-                super.onActivityResult(requestCode, resultCode, data)
-            }
-
-        }
-    }*/
 
 }

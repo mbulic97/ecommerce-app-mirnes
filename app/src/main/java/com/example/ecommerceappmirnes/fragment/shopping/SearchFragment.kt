@@ -64,6 +64,10 @@ class SearchFragment : Fragment(R.layout.search_item) {
             layoutManager= GridLayoutManager(requireContext(),1, GridLayoutManager.VERTICAL,false)
             adapter=searchAdapter
         }
+        searchAdapter.onClick={
+            val b=Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_searchFragment_to_productDetailsFragment,b)
+        }
         lifecycleScope.launchWhenStarted {
             viewModel.specialProduct.collectLatest {
                 when (it) {
@@ -85,6 +89,7 @@ class SearchFragment : Fragment(R.layout.search_item) {
                     product.name.contains(newText, ignoreCase = true)
                     }
                     searchAdapter.differ.submitList(filteredList)
+
                 }
                 return true
             }

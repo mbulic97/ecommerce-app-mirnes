@@ -33,21 +33,4 @@ class BarcodeAndORViewModel @Inject constructor(
                 }
             }
     }
-    /*init {
-        viewModelScope.launch {
-            _scannerBarcode.emit(Resource.Loading())
-        }
-        firestore.collection("Products").get()
-            .addOnSuccessListener { result ->
-                val bestProducts = result.toObjects(Product::class.java)
-                viewModelScope.launch {
-                    _scannerBarcode.emit(Resource.Success(bestProducts))
-                }
-            }.addOnFailureListener {
-                viewModelScope.launch {
-                    _scannerBarcode.emit(Resource.Error(it.message.toString()))
-                }
-            }
-    }*/
-
 }

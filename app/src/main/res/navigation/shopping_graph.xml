@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_barcodeAndQRFragment"
+            app:destination="@id/barcodeAndQRFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -113,6 +116,18 @@
         android:label="ViewImageItem" >
         <argument
             android:name="product"
+            app:argType="com.example.ecommerceappmirnes.data.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/barcodeAndQRFragment"
+        android:name="com.example.ecommerceappmirnes.fragment.shopping.BarcodeAndQRFragment"
+        android:label="BarcodeAndQRFragment"
+        tools:layout="@layout/fragment_barcode_and_qr">
+        <action
+            android:id="@+id/action_barcodeAndQRFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <argument
+            android:name="Product"
             app:argType="com.example.ecommerceappmirnes.data.Product" />
     </fragment>
 </navigation>

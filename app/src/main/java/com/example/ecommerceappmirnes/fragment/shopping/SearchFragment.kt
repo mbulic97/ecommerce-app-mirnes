@@ -34,6 +34,7 @@ import com.example.ecommerceappmirnes.data.User
 import com.example.ecommerceappmirnes.databinding.FragmentSearchBinding
 import com.example.ecommerceappmirnes.databinding.SearchItemBinding
 import com.example.ecommerceappmirnes.util.Resource
+import com.example.ecommerceappmirnes.util.showBottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -94,6 +95,11 @@ class SearchFragment : Fragment(R.layout.search_item) {
                 return true
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigationView()
     }
 
 

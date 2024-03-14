@@ -49,9 +49,7 @@ class SearchAdapter(): RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     }
     val differ = AsyncListDiffer(this, diffCallback)
-    fun dsad(){
-        notifyDataSetChanged()
-    }
+
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         val product= differ.currentList[position]
         holder.bind(product)

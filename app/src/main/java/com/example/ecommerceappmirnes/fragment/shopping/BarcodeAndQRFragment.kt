@@ -55,13 +55,23 @@ class BarcodeAndQRFragment(): Fragment(R.layout.fragment_barcode_and_qr) {
                 when(it){
                     is com.example.ecommerceappmirnes.util.Resource.Loading ->{
                         showLoading()
+                        hideEmptyBarcode()
                     }
                     is com.example.ecommerceappmirnes.util.Resource.Success->{
-                        BarcodeAndQEAdapter.differ.submitList(it.data)
-                        hideLoading()
+                        if(it.data!!.isEmpty()){
+                            showEmptyBarcode()
+                            hideLoading()
+                        }
+                        else{
+                            hideEmptyBarcode()
+                            BarcodeAndQEAdapter.differ.submitList(it.data)
+                            hideLoading()
+                        }
+
                     }
                     is com.example.ecommerceappmirnes.util.Resource.Error->{
                         hideLoading()
+                        hideEmptyBarcode()
                         Log.e(TAG,it.message.toString())
                         Toast.makeText(requireContext(),it.message, Toast.LENGTH_SHORT).show()
                     }
@@ -77,6 +87,17 @@ class BarcodeAndQRFragment(): Fragment(R.layout.fragment_barcode_and_qr) {
     }
     private fun showLoading() {
         binding.BarcodeAndQRProgressbar.visibility=View.VISIBLE
+    }
+    private fun hideEmptyBarcode() {
+        binding.apply {
+            layoutBarcodeEmpty.visibility= View.GONE
+        }
+    }
+
+    private fun showEmptyBarcode() {
+        binding.apply {
+            layoutBarcodeEmpty.visibility= View.VISIBLE
+        }
     }
 
 }

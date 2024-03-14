@@ -82,10 +82,8 @@ class HomeFragment: Fragment(R.layout.fragment_home){
                 val bundle = Bundle().apply {
                     putString("barcode",result.contents)
                 }
-                //BarcodeAndQRFragment(result.contents)
+
                 findNavController().navigate(R.id.action_homeFragment_to_barcodeAndQRFragment,bundle)
-                /*val action = HomeFragmentDirections.actionHomeFragmentToBarcodeAndQRFragment(result.contents.toString())
-                findNavController().navigate(action)*/
             }
         }else{
             super.onActivityResult(requestCode, resultCode, data)

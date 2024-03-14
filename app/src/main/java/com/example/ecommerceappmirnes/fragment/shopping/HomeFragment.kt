@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.ecommerceappmirnes.R
 import com.example.ecommerceappmirnes.adapters.HomeViewpagerAdapter
@@ -14,9 +18,14 @@ import com.example.ecommerceappmirnes.databinding.FragmentHomeBinding
 import com.example.ecommerceappmirnes.fragment.categories.*
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.zxing.integration.android.IntentIntegrator
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment: Fragment(R.layout.fragment_home){
     private lateinit var binding: FragmentHomeBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,7 +79,13 @@ class HomeFragment: Fragment(R.layout.fragment_home){
                 Toast.makeText(context,"Cancelled", Toast.LENGTH_LONG).show()
             }
             else{
-                Toast.makeText(context,"Scanned: " + result.contents,Toast.LENGTH_LONG).show()
+                val bundle = Bundle().apply {
+                    putString("barcode",result.contents)
+                }
+                //BarcodeAndQRFragment(result.contents)
+                findNavController().navigate(R.id.action_homeFragment_to_barcodeAndQRFragment,bundle)
+                /*val action = HomeFragmentDirections.actionHomeFragmentToBarcodeAndQRFragment(result.contents.toString())
+                findNavController().navigate(action)*/
             }
         }else{
             super.onActivityResult(requestCode, resultCode, data)

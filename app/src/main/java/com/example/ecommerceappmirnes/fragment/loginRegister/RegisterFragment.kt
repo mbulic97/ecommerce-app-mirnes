@@ -49,8 +49,7 @@ class RegisterFragment: Fragment() {
                 )
                 val password=edPasswordRegister.text.toString()
                 viewModel.createAccountWithEmailAndPassword(user,password)
-                findNavController().navigate(R.id.action_registerFragment_to_homeFragment2)
-
+                //findNavController().navigate(R.id.action_registerFragment_to_homeFragment2)
             }
         }
         lifecycleScope.launchWhenStarted {
@@ -83,7 +82,7 @@ class RegisterFragment: Fragment() {
                 }
                 if(validation.password is RegisterValidation.Failed){
                     withContext(Dispatchers.Main){
-                        binding.edEmailRegister.apply {
+                        binding.edPasswordRegister.apply {
                             requestFocus()
                             error=validation.password.message
                         }

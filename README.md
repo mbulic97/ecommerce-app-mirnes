@@ -13,6 +13,17 @@
 - Order Management: Users can view all orders and order details
 - Profile Settings: Allows users to manage their profiles and navigate easily
 
+# Screen Recording
+
+https://github.com/mbulic97/ecommerce-app-mirnes/assets/124406856/9acf564d-b0e5-493c-95c9-a29dc769245d
+
+
+https://github.com/mbulic97/ecommerce-app-mirnes/assets/124406856/cbb75b1b-9ee8-477a-bf67-80fc1a5b2abb
+
+
+
+
+
 ## Technologies used
 - Kotlin
 - Server side & Database: Firebase (Authentication, Firestore Database, Storage)
